@@ -8,9 +8,10 @@
 
 :root {
   font-size: 16px;
-  --sidebarGap: 0.5rem;
+  --innerGap: 0.5rem;
   --sidebarIconHeight: 1.5rem;
   --sidebarIconWidth: 1.5rem;
+  --top-section-padding: 1rem;
 }
 
 .container {
@@ -29,7 +30,7 @@
   z-index: 2;
   display: grid;
   grid-template-rows: auto 1fr;
-  padding: 1rem;
+  padding: var(--top-section-padding);
   color: white;
 }
 
@@ -51,7 +52,7 @@ ul[class^="sidebar-menu"] {
   display: grid;
   grid-auto-flow: row;
   grid-template-rows: repeat(auto-fit, 25px);
-  gap: var(--sidebarGap);
+  gap: var(--innerGap);
 }
 
 .sidebar-entry,
@@ -59,7 +60,7 @@ ul[class^="sidebar-menu"] {
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
-  gap: var(--sidebarGap);
+  gap: var(--innerGap);
 }
 
 .sidebar-entry-icon {
@@ -73,9 +74,101 @@ ul[class^="sidebar-menu"] {
   background-color: #ffffff;
   box-shadow: 0 0 5px rgba(0 0 0 / 0.25);
   z-index: 1;
+  display: grid;
+  grid-template-rows: repeat(auto-fill, 1fr);
+  padding: var(--top-section-padding);
+  gap: var(--innerGap);
+}
+
+.top-bar {
+  display: grid;
+  grid-auto-flow: column;
+  padding: 0 var(--top-section-padding);
+  grid-template-columns:
+    var(--sidebarIconWidth) 1fr var(--sidebarIconWidth) calc(
+      var(--sidebarIconWidth) * 1.5
+    )
+    auto;
+  gap: var(--innerGap);
+  align-items: center;
+}
+
+#search {
+  margin-right: 5rem;
+  border-radius: 0.625rem;
+  background-color: #e2e8f0;
+  padding: 0.25rem 0.5rem;
+  border: none;
+}
+
+.search-icon,
+.notification-icon {
+  height: var(--sidebarIconHeight);
+  width: var(--sidebarIconWidth);
+  padding: 0.25rem;
+}
+
+.account-icon {
+  border-radius: 50%;
+}
+
+.top-bar .account-icon {
+  height: calc(var(--sidebarIconHeight) * 1.5);
+}
+
+.account-dashboard {
+  display: grid;
+  grid-auto-flow: column;
+  padding: 0 var(--top-section-padding);
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: var(--innerGap);
+  justify-content: space-between;
+}
+
+.account-dashboard .account-icon {
+  height: calc(var(--sidebarIconHeight) * 2.5);
+  width: calc(var(--sidebarIconWidth) * 2.5);
+  padding: 0.25rem;
+}
+
+.account-name {
+  font-weight: bold;
+}
+
+.account-greeter {
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--innerGap);
+  align-items: center;
+  font-weight: bold;
+}
+
+.account-hi {
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.account-greeter .account-name {
+  font-size: large;
+}
+
+.user-actions {
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--innerGap);
+}
+
+.user-action {
+  padding: 0.5rem 1rem;
+  border-radius: 1.5rem;
+  background-color: #1992d4;
+  color: white;
+  font-weight: bold;
 }
 
 .content {
   grid-area: content;
   background-color: #e2e8f0;
+  padding: var(--top-section-padding);
 }
