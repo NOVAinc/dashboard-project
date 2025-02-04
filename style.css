@@ -171,4 +171,54 @@ ul[class^="sidebar-menu"] {
   grid-area: content;
   background-color: #e2e8f0;
   padding: var(--top-section-padding);
+  grid-auto-flow: column;
+}
+
+.article-container,
+.info-container {
+  display: grid;
+  grid-auto-flow: row;
+  gap: var(--innerGap);
+}
+
+.article-title,
+.announcements-title {
+  font-weight: bold;
+  font-size: larger;
+}
+
+.article-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--innerGap);
+}
+
+.card {
+  display: grid;
+  grid-auto-flow: row;
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border-left: 0.5rem solid #f0b429;
+  height: 150px;
+}
+
+.card-title {
+  font-size: large;
+  font-weight: bold;
+}
+
+.card-description {
+  color: gray;
+}
+
+.card-actions {
+  align-self: end;
+  justify-self: end;
+}
+
+.content img[src$="icon.svg"] {
+  height: var(--sidebarIconHeight);
+  width: var(--sidebarIconWidth);
+  padding: 0.25rem;
 }
